@@ -7,6 +7,11 @@ class Uploader
 	end
 
 	def upload(local_file, progress = nil)
+
+		unless File.exists? local_file
+			raise "File #{local_file} does not exist."
+		end
+
 		file_extension = File.extname(local_file)
 		filename = uuid + file_extension
 
