@@ -1,6 +1,6 @@
 # FileCloud — Quickly Upload & Share Files 
 
-Uploads Files via SSH to you own server and copies the resulting URL to clipboard for easy sharing.
+Uploads Files via SSH to your own server and copies the resulting URL to clipboard for easy sharing.
 
 ## Requirements
 
