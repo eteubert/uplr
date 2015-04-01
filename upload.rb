@@ -11,9 +11,24 @@ require_relative 'lib/upload_complete_notifier'
 require_relative 'lib/upload_clipboard_handler'
 
 options = Parser.new do |p|
-	p.banner = "Upload Files via SCP"
+	p.banner = <<-BANNER
+NAME
+	ruby upload.rb -- Upload Files via SCP
+
+SYNOPSIS
+	ruby upload.rb [options] file
+
+DESCRIPTION
+	Uploads the specified file to the given server.
+	Progress is shown via system notifications (disable with --no-progress). 
+	The final notification is clickable and opens the share URL in a web 
+	browser. The share URL is automatically copied to the system clipboard 
+	(disable with --no-clipboard).
+
+OPTIONS
+BANNER
 	p.version = "1.0"
-	p.option :file, "File to upload", default: ARGV.last
+	p.option :file, "File to upload (or pass as last argument)", default: ARGV.last
 	p.option :host, "Connection: host", default: 'example.com'
 	p.option :user, "Connection: user", default: 'john'
 	p.option :path, "Connection: path", default: '/srv/www/example.com/public_html/u/'

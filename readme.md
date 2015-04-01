@@ -15,8 +15,21 @@ bundle install
 ```
 ruby upload.rb --help
 
-Upload Files via SCP
-    -f, --file --help                File to upload
+NAME
+    ruby upload.rb -- Upload Files via SCP
+
+SYNOPSIS
+    ruby upload.rb [options] file
+
+DESCRIPTION
+    Uploads the specified file to the given server.
+    Progress is shown via system notifications (disable with --no-progress). 
+    The final notification is clickable and opens the share URL in a web 
+    browser. The share URL is automatically copied to the system clipboard 
+    (disable with --no-clipboard).
+
+OPTIONS
+    -f, --file --help                File to upload (or pass as last argument)
     -h, --host example.com           Connection: host
     -u, --user john                  Connection: user
     -p /srv/www/example.com/public_html/u/,
