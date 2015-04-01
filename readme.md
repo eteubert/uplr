@@ -14,7 +14,24 @@ bundle install
 ## Usage
 
 ```
-ruby upload.rb /path/to/file
+ruby upload.rb --help
+
+Upload Files via SCP
+    -f, --file --help                File to upload
+    -h, --host ericteubert.de        Connection: host
+    -u, --user eric                  Connection: user
+    -p /srv/www/ericteubert.de/public_html/u/,
+        --path                       Connection: path
+    -b http://www.ericteubert.de/u/, Upload URL directory
+        --base-url
+    -r, --[no-]progress              Show upload progress notifications
+    -c, --[no-]clipboard             Copy final URL to clipboard
+        --help                       Show this message
+    -v, --version                    Print version
+```
+
+```
+ruby upload.rb --host example.com --user john --path /srv/www/example.com/public_html/u/ --base-url http://www.example.com/u/ /path/to/file.png
 ```
 
 ## Recommendation
