@@ -8,7 +8,6 @@ Uploads Files via SSH to you own server and copies resulting URL to clipboard fo
 git clone https://github.com/eteubert/file-cloud.git
 cd file-cloud
 bundle install
-# edit paths in upload.rb ... or wait until I convert these into options
 ```
 
 ## Usage
