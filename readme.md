@@ -17,11 +17,11 @@ ruby upload.rb --help
 
 Upload Files via SCP
     -f, --file --help                File to upload
-    -h, --host ericteubert.de        Connection: host
-    -u, --user eric                  Connection: user
-    -p /srv/www/ericteubert.de/public_html/u/,
+    -h, --host example.com           Connection: host
+    -u, --user john                  Connection: user
+    -p /srv/www/example.com/public_html/u/,
         --path                       Connection: path
-    -b http://www.ericteubert.de/u/, Upload URL directory
+    -b http://www.example.com/u/,    Upload URL directory
         --base-url
     -r, --[no-]progress              Show upload progress notifications
     -c, --[no-]clipboard             Copy final URL to clipboard
