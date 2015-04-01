@@ -14,10 +14,10 @@ options = Parser.new do |p|
 	p.banner = "Upload Files via SCP"
 	p.version = "1.0"
 	p.option :file, "File to upload", default: ARGV[0]
-	p.option :host, "Connection: host", default: 'ericteubert.de'
-	p.option :user, "Connection: user", default: 'eric'
-	p.option :path, "Connection: path", default: '/srv/www/ericteubert.de/public_html/u/'
-	p.option :base_url, "Upload URL directory", default: 'http://www.ericteubert.de/u/'
+	p.option :host, "Connection: host", default: 'example.com'
+	p.option :user, "Connection: user", default: 'john'
+	p.option :path, "Connection: path", default: '/srv/www/example.com/public_html/u/'
+	p.option :base_url, "Upload URL directory", default: 'http://www.example.com/u/'
 	p.option :progress, "Show upload progress notifications", default: true
 	p.option :clipboard, "Copy final URL to clipboard", default: true
 end.process!
