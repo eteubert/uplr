@@ -1,9 +1,10 @@
 require 'rubygems'
 require 'bundler/setup'
-require 'net/scp'
-require 'securerandom'
 require 'terminal-notifier'
 require 'micro-optparse'
+
+require_relative 'lib/scp_connection'
+require_relative 'lib/uploader'
 
 class Time
 	def to_ms
@@ -22,34 +23,35 @@ options = Parser.new do |p|
 	p.banner = "Upload Files via SCP"
 	p.version = "1.0"
 	p.option :file, "File to upload", short: "f", default: ARGV[0]
+	p.option :host, "Connection: host", default: 'ericteubert.de'
+	p.option :user, "Connection: user", default: 'eric'
+	p.option :path, "Connection: path", default: '/srv/www/ericteubert.de/public_html/u/'
+	p.option :base_url, "Upload URL directory", default: 'http://www.ericteubert.de/u/'
 end.process!
 
-remote_host = 'ericteubert.de'
-remote_user = 'eric'
-local_path  = options[:file]
-remote_path = '/srv/www/ericteubert.de/public_html/u/'
-upload_base_url = 'http://www.ericteubert.de/u/'
 
-uuid = SecureRandom.urlsafe_base64(10)
-file_extension = File.extname(local_path)
-notification_group = "file_cloud_#{uuid}"
+connection = ScpConnection.new(
+	host: options[:host],
+	user: options[:user],
+	path: options[:path],
+	base_url: options[:base_url]
+)
 
-file_name   = uuid + file_extension
-remote_file = remote_path + file_name
-upload_url  = upload_base_url + file_name
+uploader = Uploader.new(connection)
+result = uploader.upload(options[:file])
 
-last_message_time = 0
-Net::SCP.upload!(remote_host, remote_user, local_path, remote_file) do |ch, name, sent, total| 
-	progress = (sent.to_f/total * 100)
+# last_message_time = 0
+# Net::SCP.upload!(remote_host, remote_user, local_path, remote_file) do |ch, name, sent, total| 
+# 	progress = (sent.to_f/total * 100)
 
-	if Time.now.to_ms - last_message_time > 800 || progress == 100
-		TerminalNotifier.notify("%.2f%" % progress, title: "Upload…", open: upload_url, group: notification_group)
-		last_message_time = Time.now.to_ms
-	end
-end
+# 	if Time.now.to_ms - last_message_time > 800 || progress == 100
+# 		TerminalNotifier.notify("%.2f%" % progress, title: "Upload…", open: upload_url, group: notification_group)
+# 		last_message_time = Time.now.to_ms
+# 	end
+# end
 
 TerminalNotifier.notify(
 	"URL copied to clipboard.", 
-	title: "Upload Complete", open: upload_url, group: notification_group, subtitle: upload_url
+	title: "Upload Complete", open: result[:url], group: 'asd', subtitle: result[:url]
 )
-pbcopy(upload_url)
+pbcopy(result[:url])
