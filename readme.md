@@ -1,6 +1,12 @@
-# FileCloud — Minimalistic File Upload for Mac OS X
+# FileCloud — Upload & Share Files Quickly
 
 Uploads Files via SSH to you own server and copies resulting URL to clipboard for easy sharing.
+
+## Requirements
+
+* Ruby
+* Mac OS X 10.8+
+* Web Server with [SSH Private Key Authentication][2] to store files
 
 ## Setup
 
@@ -69,3 +75,4 @@ Note that depending on your ruby setup it might be necessary to provide the full
 Now you just have to drag&drop a file to the dock folder and seconds later there is a shareable link in your clipboard. Awesome!
 
 [1]: http://www.noodlesoft.com/hazel.php
+[2]: https://help.ubuntu.com/community/SSH/OpenSSH/Keys
