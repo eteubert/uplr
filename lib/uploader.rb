@@ -6,11 +6,11 @@ class Uploader
 		@connection = connection
 	end
 
-	def upload(local_file)
+	def upload(local_file, progress = nil)
 		file_extension = File.extname(local_file)
 		filename = uuid + file_extension
 
-		url = @connection.upload(local_file, filename)
+		url = @connection.upload(local_file, filename, progress)
 
 		{ url: url }
 	end
