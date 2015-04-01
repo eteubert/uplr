@@ -13,7 +13,7 @@ require_relative 'lib/upload_clipboard_handler'
 options = Parser.new do |p|
 	p.banner = "Upload Files via SCP"
 	p.version = "1.0"
-	p.option :file, "File to upload", default: ARGV[0]
+	p.option :file, "File to upload", default: ARGV.last
 	p.option :host, "Connection: host", default: 'example.com'
 	p.option :user, "Connection: user", default: 'john'
 	p.option :path, "Connection: path", default: '/srv/www/example.com/public_html/u/'
