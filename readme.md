@@ -2,6 +2,8 @@
 
 Uploads Files via SSH to your own server and copies the resulting URL to clipboard for easy sharing.
 
+![demo](https://cloud.githubusercontent.com/assets/235918/6935631/1b59d21a-d87b-11e4-923e-125ffa4e66ed.gif)
+
 ## Requirements
 
 * Ruby
