@@ -14,7 +14,7 @@ bundle install
 ## Usage
 
 ```
-ruby upload.rb upload.rb /path/to/file
+ruby upload.rb /path/to/file
 ```
 
 ## Recommendation
