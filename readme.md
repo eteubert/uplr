@@ -10,7 +10,7 @@ cd file-cloud
 bundle install
 ```
 
-## Usage
+## Help
 
 ```
 ruby upload.rb --help
@@ -42,8 +42,14 @@ OPTIONS
     -v, --version                    Print version
 ```
 
-```
-ruby upload.rb --host example.com --user john --path /srv/www/example.com/public_html/u/ --base-url http://www.example.com/u/ /path/to/file.png
+## Example
+
+```shell
+ruby upload.rb --host example.com \
+    --user john \
+    --path /srv/www/example.com/public_html/u/ \
+    --base-url http://www.example.com/u/ \
+    /path/to/file.png
 ```
 
 ## Recommendation
