@@ -21,13 +21,13 @@ bundle install
 ## Help
 
 ```
-ruby upload.rb --help
+upload --help
 
 NAME
-    ruby upload.rb -- Upload Files via SCP
+    upload -- Upload Files via SCP
 
 SYNOPSIS
-    ruby upload.rb [options] file
+    upload [options] file
 
 DESCRIPTION
     Uploads the specified file to the given server.
@@ -53,7 +53,7 @@ OPTIONS
 ## Example
 
 ```shell
-ruby upload.rb --host example.com \
+upload --host example.com \
     --user john \
     --path /srv/www/example.com/public_html/u/ \
     --base-url http://www.example.com/u/ \

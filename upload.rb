@@ -13,10 +13,10 @@ require_relative 'lib/upload_clipboard_handler'
 options = Parser.new do |p|
 	p.banner = <<-BANNER
 NAME
-	ruby upload.rb -- Upload Files via SCP
+	upload -- Upload Files via SCP
 
 SYNOPSIS
-	ruby upload.rb [options] file
+	upload [options] file
 
 DESCRIPTION
 	Uploads the specified file to the given server.
