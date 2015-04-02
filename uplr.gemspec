@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["eric@ericteubert.de"]
   spec.summary       = %q{Uploads Files via SSH to your own server and copies the resulting URL to clipboard for easy sharing.}
   spec.description   = %q{Uploads the specified file to the given server. Progress is shown via system notifications (disable with --no-progress). The final notification is clickable and opens the share URL in a web browser. The share URL is automatically copied to the system clipboard (disable with --no-clipboard).}
-  spec.homepage      = "http://ericteubert.de"
+  spec.homepage      = "https://github.com/eteubert/uplr"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
