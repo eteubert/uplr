@@ -13,9 +13,7 @@ Uploads Files via SSH to your own server and copies the resulting URL to clipboa
 ## Setup
 
 ```
-git clone https://github.com/eteubert/file-cloud.git
-cd file-cloud
-bundle install
+gem install uplr --pre
 ```
 
 ## Help
@@ -69,10 +67,10 @@ To maximize joy, pair with [Hazel][1].
 3. Create new rule in Hazel for "Uploads" folder, choose "Run Shell Script", "embedded script", "/bin/bash" and paste/adjust the following:
 
 ```
-ruby ~/FileCloud/uplr.rb "$1"
+uplr "$1"
 ```
 
-Note that depending on your ruby setup it might be necessary to provide the full path to the binary, for example `~/.rbenv/shims/ruby` for rbenv.
+Note that depending on your ruby setup it might be necessary to provide the full path to the binary, for example `~/.rbenv/shims/uplr` for rbenv.
 
 Now you just have to drag&drop a file to the dock folder and seconds later there is a shareable link in your clipboard. Awesome!
 
