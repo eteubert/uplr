@@ -62,6 +62,8 @@ uplr --host example.com \
 
 To maximize joy, pair with [Hazel][1].
 
+![hazel-workflow](https://cloud.githubusercontent.com/assets/235918/6962781/66b34a26-d96a-11e4-8348-c7c2948bca3a.gif)
+
 1. Create "Uploads" folder
 2. Drag "Uploads" folder into Dock
 3. Create new rule in Hazel for "Uploads" folder, choose "Run Shell Script", "embedded script", "/bin/bash" and paste/adjust the following:
