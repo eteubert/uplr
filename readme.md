@@ -1,4 +1,4 @@
-# FileCloud — Quickly Upload & Share Files 
+# Uplr — Quickly Upload & Share Files 
 
 Uploads Files via SSH to your own server and copies the resulting URL to clipboard for easy sharing.
 
