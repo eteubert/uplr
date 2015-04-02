@@ -3,20 +3,21 @@ require 'bundler/setup'
 require 'terminal-notifier'
 require 'micro-optparse'
 
-require_relative 'lib/scp_connection'
-require_relative 'lib/uploader'
-require_relative 'lib/upload_progress'
-require_relative 'lib/upload_progress_notifier'
-require_relative 'lib/upload_complete_notifier'
-require_relative 'lib/upload_clipboard_handler'
+require 'uplr/scp_connection'
+require 'uplr/uploader'
+require 'uplr/upload_progress'
+require 'uplr/upload_progress_notifier'
+require 'uplr/upload_complete_notifier'
+require 'uplr/upload_clipboard_handler'
+require 'uplr/version'
 
 options = Parser.new do |p|
 	p.banner = <<-BANNER
 NAME
-	upload -- Upload Files via SCP
+	uplr -- Upload Files via SCP
 
 SYNOPSIS
-	upload [options] file
+	uplr [options] file
 
 DESCRIPTION
 	Uploads the specified file to the given server.
@@ -27,7 +28,7 @@ DESCRIPTION
 
 OPTIONS
 BANNER
-	p.version = "1.0"
+	p.version = Uplr::VERSION
 	p.option :file, "File to upload (or pass as last argument)", default: ARGV.last
 	p.option :host, "Connection: host", default: 'example.com'
 	p.option :user, "Connection: user", default: 'john'
@@ -37,24 +38,24 @@ BANNER
 	p.option :clipboard, "Copy final URL to clipboard", default: true
 end.process!
 
-connection = ScpConnection.new(
+connection = Uplr::ScpConnection.new(
 	host: options[:host],
 	user: options[:user],
 	path: options[:path],
 	base_url: options[:base_url]
 )
 
-uploader = Uploader.new(connection)
-progress = UploadProgress.new
+uploader = Uplr::Uploader.new(connection)
+progress = Uplr::UploadProgress.new
 
 if options[:clipboard]
-	UploadClipboardHandler.new(progress)
+	Uplr::UploadClipboardHandler.new(progress)
 end
 
 if options[:progress]
-	UploadProgressNotifier.new(progress)
+	Uplr::UploadProgressNotifier.new(progress)
 end
 
-UploadCompleteNotifier.new(progress, options[:clipboard])
+Uplr::UploadCompleteNotifier.new(progress, options[:clipboard])
 
 uploader.upload(options[:file], progress)

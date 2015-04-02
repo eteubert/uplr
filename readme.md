@@ -21,13 +21,13 @@ bundle install
 ## Help
 
 ```
-upload --help
+uplr --help
 
 NAME
-    upload -- Upload Files via SCP
+    uplr -- Upload Files via SCP
 
 SYNOPSIS
-    upload [options] file
+    uplr [options] file
 
 DESCRIPTION
     Uploads the specified file to the given server.
@@ -53,7 +53,7 @@ OPTIONS
 ## Example
 
 ```shell
-upload --host example.com \
+uplr --host example.com \
     --user john \
     --path /srv/www/example.com/public_html/u/ \
     --base-url http://www.example.com/u/ \
@@ -69,7 +69,7 @@ To maximize joy, pair with [Hazel][1].
 3. Create new rule in Hazel for "Uploads" folder, choose "Run Shell Script", "embedded script", "/bin/bash" and paste/adjust the following:
 
 ```
-ruby ~/FileCloud/upload.rb "$1"
+ruby ~/FileCloud/uplr.rb "$1"
 ```
 
 Note that depending on your ruby setup it might be necessary to provide the full path to the binary, for example `~/.rbenv/shims/ruby` for rbenv.
