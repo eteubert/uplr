@@ -22,20 +22,20 @@ gem install uplr --pre
 uplr --help
 
 NAME
-    uplr -- Upload Files via SCP
+  uplr -- Upload Files via SCP
 
 SYNOPSIS
-    uplr [options] file
+  uplr [options] file
 
 DESCRIPTION
-    Uploads the specified file to the given server.
-    Progress is shown via system notifications (disable with --no-progress). 
-    The final notification is clickable and opens the share URL in a web 
-    browser. The share URL is automatically copied to the system clipboard 
-    (disable with --no-clipboard).
+  Uploads the specified file to the given server.
+  Progress is shown via system notifications (disable with --no-progress).
+  The final notification is clickable and opens the share URL in a web
+  browser. The share URL is automatically copied to the system clipboard
+  (disable with --no-clipboard).
 
 OPTIONS
-    -f, --file --help                File to upload (or pass as last argument)
+    -f, --[no-]file                  File to upload (or pass as last argument)
     -h, --host example.com           Connection: host
     -u, --user john                  Connection: user
     -p /srv/www/example.com/public_html/u/,
@@ -43,6 +43,7 @@ OPTIONS
     -b http://www.example.com/u/,    Upload URL directory
         --base-url
     -r, --[no-]progress              Show upload progress notifications
+    -o, --[no-]progressbar           Show upload progress bar when using command line
     -c, --[no-]clipboard             Copy final URL to clipboard
         --help                       Show this message
     -v, --version                    Print version

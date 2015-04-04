@@ -2,10 +2,12 @@ require 'rubygems'
 require 'bundler/setup'
 require 'terminal-notifier'
 require 'micro-optparse'
+require 'ruby-progressbar'
 
 require 'uplr/scp_connection'
 require 'uplr/uploader'
 require 'uplr/upload_progress'
+require 'uplr/upload_progress_bar'
 require 'uplr/upload_progress_notifier'
 require 'uplr/upload_complete_notifier'
 require 'uplr/upload_clipboard_handler'
@@ -35,6 +37,7 @@ BANNER
   p.option :path, "Connection: path", default: '/srv/www/example.com/public_html/u/'
   p.option :base_url, "Upload URL directory", default: 'http://www.example.com/u/'
   p.option :progress, "Show upload progress notifications", default: true
+  p.option :progressbar, "Show upload progress bar when using command line", default: true
   p.option :clipboard, "Copy final URL to clipboard", default: true
 end
 
@@ -67,6 +70,10 @@ end
 
 if options[:progress]
   Uplr::UploadProgressNotifier.new(progress)
+end
+
+if options[:progressbar]
+  Uplr::UploadProgressBar.new(progress)
 end
 
 Uplr::UploadCompleteNotifier.new(progress, options[:clipboard])

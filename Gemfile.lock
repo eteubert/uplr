@@ -5,6 +5,7 @@ GEM
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.2)
+    ruby-progressbar (1.7.5)
     terminal-notifier (1.6.2)
 
 PLATFORMS
@@ -13,4 +14,5 @@ PLATFORMS
 DEPENDENCIES
   micro-optparse
   net-scp
+  ruby-progressbar
   terminal-notifier
