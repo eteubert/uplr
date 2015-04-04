@@ -45,6 +45,12 @@ if !options[:file]
   exit
 end
 
+if !File.exists?(options[:file])
+  puts "Error: File \"#{options[:file]}\" does not exist\n\n"
+  parser.process!(["--help"])
+  exit
+end
+
 connection = Uplr::ScpConnection.new(
   host: options[:host],
   user: options[:user],
