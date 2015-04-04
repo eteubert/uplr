@@ -15,12 +15,12 @@ module Uplr
     def upload(local_file, filename, progress = nil)
 
       url = @base_url + filename
-      
-      Net::SCP.upload!(@host, @user, local_file, @path + filename) do |ch, name, sent, total| 
+
+      Net::SCP.upload!(@host, @user, local_file, @path + filename) do |ch, name, sent, total|
         progress.update(sent, total, url) if progress
       end
 
-      url   
+      url
     end
 
   end

@@ -21,9 +21,9 @@ SYNOPSIS
 
 DESCRIPTION
   Uploads the specified file to the given server.
-  Progress is shown via system notifications (disable with --no-progress). 
-  The final notification is clickable and opens the share URL in a web 
-  browser. The share URL is automatically copied to the system clipboard 
+  Progress is shown via system notifications (disable with --no-progress).
+  The final notification is clickable and opens the share URL in a web
+  browser. The share URL is automatically copied to the system clipboard
   (disable with --no-clipboard).
 
 OPTIONS
