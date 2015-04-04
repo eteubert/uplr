@@ -11,7 +11,7 @@ require 'uplr/upload_complete_notifier'
 require 'uplr/upload_clipboard_handler'
 require 'uplr/version'
 
-options = Parser.new do |p|
+parser = Parser.new do |p|
   p.banner = <<-BANNER
 NAME
   uplr -- Upload Files via SCP
@@ -36,7 +36,14 @@ BANNER
   p.option :base_url, "Upload URL directory", default: 'http://www.example.com/u/'
   p.option :progress, "Show upload progress notifications", default: true
   p.option :clipboard, "Copy final URL to clipboard", default: true
-end.process!
+end
+
+options = parser.process!
+
+if !options[:file]
+  parser.process!(["--help"])
+  exit
+end
 
 connection = Uplr::ScpConnection.new(
   host: options[:host],
